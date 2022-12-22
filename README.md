@@ -1,25 +1,23 @@
+## About
+It was a school project. As CI/CD tool Gitlub CI/CD was used, the file is kept for demonstration purposes.
+
 ## Server address and endpoints
-Server address: 172.16.7.237  
-Frontend: http://172.16.7.237:8080/  
 Server end-points:
 -  list:
-    - GET: http://172.16.7.237:4040/api/v1/task/list
-    - GET: http://172.16.7.237:4040/api/v1/task/list/default
-    - GET: http://172.16.7.237:4040/api/v1/task/list/id
-    - POST: http://172.16.7.237:4040/api/v1/task/list
-    - PUT: http://172.16.7.237:4040/api/v1/task/list/id
-    - DELETE: http://172.16.7.237:4040/api/v1/task/list/id
+    - GET: /api/v1/task/list
+    - GET: /api/v1/task/list/default
+    - GET: /api/v1/task/list/id
+    - POST: /api/v1/task/list
+    - PUT: /api/v1/task/list/id
+    - DELETE: /api/v1/task/list/id
 -  tasks: 
-    - GET: http://172.16.7.237:4040/api/v1/tasks
-    - GET: http://172.16.7.237:4040/api/v1/tasks/tocomplete
-    - GET: http://172.16.7.237:4040/api/v1/tasks/id
-    - POST: http://172.16.7.237:4040/api/v1/tasks
-    - UPDATE: http://172.16.7.237:4040/api/v1/tasks/id
-    - DELETE: http://172.16.7.237:4040/api/v1/tasks/id
+    - GET: /api/v1/tasks
+    - GET: /api/v1/tasks/tocomplete
+    - GET: /api/v1/tasks/id
+    - POST: /api/v1/tasks
+    - UPDATE: /api/v1/tasks/id
+    - DELETE: /api/v1/tasks/id
 
-## Team members
-- Prithviraj Kalburgi
-- Innokentii Kozlov
 
 ## Instructions for running the application locally
 ### Run all together
@@ -65,11 +63,3 @@ npm start
     - [x] "Save new" button to save the current TODO list using the backend.
     - [x] "Load" button that is used to load saved lists from the backend.
     - [x] Update" button to overwrite existing list with what is currently active in the UI.
-
-## Expected project grade and the reasoning behind it
-Expected grade is 5.  
-Reasons:
-- Completed all phases in time
-- Managed to fulfill all given requirements
-- Completed the tasks with bare minimum issues 
-- Completed all weekly course tasks on time which helped us to gain knowledge for this project 
