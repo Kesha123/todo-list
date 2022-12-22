@@ -1,0 +1,23 @@
+GET http://localhost:5000/ HTTP/1.1
+###
+GET http://localhost:5000/api/v1/task/list/default HTTP/1.1
+###
+GET http://localhost:5000/api/v1/task/list HTTP/1.1
+###
+POST http://localhost:5000/api/v1/task/list HTTP/1.1
+content-type: application/json
+
+{
+    "name": "test list",
+    "tasks": [
+        {
+            "task": "test task 1",
+            "completed": false
+        },
+        {
+            "task": "test task 2",
+            "completed": true
+        }
+    ],
+    "done": false
+}
