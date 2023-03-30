@@ -1,5 +1,13 @@
 ## About
-It was a school project. As CI/CD tool Gitlub CI/CD was used, the file is kept for demonstration purposes.
+ToDo list.
+
+## Technologies
+- ```React```
+- ```Docker```
+- ```Docker compose```
+- ```MongoDB```
+- ```NodeJs```
+- ```Github Actions```
 
 ## Server address and endpoints
 Server end-points:
@@ -10,7 +18,7 @@ Server end-points:
     - POST: /api/v1/task/list
     - PUT: /api/v1/task/list/id
     - DELETE: /api/v1/task/list/id
--  tasks: 
+-  tasks:
     - GET: /api/v1/tasks
     - GET: /api/v1/tasks/tocomplete
     - GET: /api/v1/tasks/id
