@@ -28,7 +28,7 @@ jobs:
           context: .
           file: backend/DockerfileServer
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/todo_backend:latest
       -
         name: Build and push frontend
         uses: docker/build-push-action@v4
@@ -36,4 +36,4 @@ jobs:
           context: .
           file: frontend/DockerfileProduction
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/todo_frontend:latest
