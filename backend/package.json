@@ -7,7 +7,7 @@
     "start": "cross-env MONGODB=mongodb://mongo:27017/project node src/index.js",
     "dev": "cross-env MONGODB=mongodb://mongo:27017/project nodemon src/index.js",
     "lint": "eslint --fix src",
-    "test": "cross-env NODE_ENV=test MONGODBSERVER=mongodb://172.16.7.237:27018/project jest",
+    "test": "cross-env NODE_ENV=test MONGODBSERVER=mongodb://172.16.7.237:27017/project jest",
     "test:dev": "cross-env NODE_ENV=test MONGODBSERVER=mongodb://localhost:27017/project jest"
   },
   "keywords": [],

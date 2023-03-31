@@ -22,5 +22,5 @@ services:
     volumes:
       - ./data:/opt/app/data/db
     ports:
-      - '27018:27017'
+      - '27017:27017'
     restart: always

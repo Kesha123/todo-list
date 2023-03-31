@@ -6,34 +6,65 @@ on:
       - "main"
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v3
-      -
-        name: Login to Docker Hub
+
+      - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Set up Docker Buildx
+
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      -
-        name: Build and push backend
+
+      - name: Build and push backend
         uses: docker/build-push-action@v4
         with:
           context: .
           file: backend/DockerfileServer
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/todo_backend:latest
-      -
-        name: Build and push frontend
+
+      - name: Build and push frontend
         uses: docker/build-push-action@v4
         with:
           context: .
           file: frontend/DockerfileProduction
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/todo_frontend:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{ secrets.HOST_ADDRESS }} >> ~/.ssh/known_hosts
+
+      - name: Set up docker-compose
+        run:
+          mkdir todo-project
+          cp docker-compose.production.yml todo-project/docker-compose.yml
+          echo "BACKEND_PRODUCTION_IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/todo_backend:latest" >> todo-project/.env
+          echo "FRONTEND_PRODUCTION_IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/todo_frontend:latest" >> todo-project/.env
+
+      - name: Deploy with rsync
+        run: rsync -vr todo-project/ ${{ secrets.USERNAME }}@${{ secrets.HOST_ADDRESS }}:/home/innokentii/todo-project/
+
+      - name: Run application
+        run: ssh ${{ secrets.USERNAME }}@${{ secrets.HOST_ADDRESS }}
+              "
+                cd $HOME/todo-project;
+                docker-compose up -d;
+              "
