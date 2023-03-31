@@ -1,5 +1,5 @@
 ## About
-ToDo list.
+ToDo list: http://94.131.100.193:8080/
 
 ## Technologies
 - ```React```
@@ -8,6 +8,7 @@ ToDo list.
 - ```MongoDB```
 - ```NodeJs```
 - ```Github Actions```
+- ```Github CI/CD tools```
 
 ## Server address and endpoints
 Server end-points:

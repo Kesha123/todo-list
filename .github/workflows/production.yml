@@ -1,9 +1,10 @@
 name: production
 
+run-name: ${{ github.actor }}
+
 on:
   push:
-    branches:
-      - "main"
+    branches: [ main ]
 
 jobs:
 
