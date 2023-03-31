@@ -69,5 +69,6 @@ jobs:
         run: ssh ${{ secrets.USERNAME }}@${{ secrets.HOST_ADDRESS }}
               "
                 cd /home/${{ secrets.USERNAME }}/todo-project;
+                docker-compose pull;
                 docker-compose up -d;
               "
