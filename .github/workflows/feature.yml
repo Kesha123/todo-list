@@ -3,4 +3,4 @@ name: feature
 on:
   push:
     branches:
-      - "feature*"
+      - "feature"
