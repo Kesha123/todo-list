@@ -68,6 +68,6 @@ jobs:
       - name: Run application
         run: ssh ${{ secrets.USERNAME }}@${{ secrets.HOST_ADDRESS }}
               "
-                cd $HOME/todo-project;
+                cd /home/${{ secrets.USERNAME }}/todo-project;
                 docker-compose up -d;
               "
